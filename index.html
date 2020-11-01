@@ -1,0 +1,818 @@
+<!--You can do much with this program. click see demo to view the series of classic and beautify buttons I designed with this program !!-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Written by stonny
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="w3.css"/>
+<style type="text/css">
+.tween{
+animation:zoom 1s linear ;
+}
+
+@keyframes zoom{
+from{font-size:8px; opacity:.5}
+to{font-size:10px; opacity:1}
+}
+
+
+/***written by Stonny***/
+body{
+user-select:none;
+}
+
+/**color theme for option menu**/
+.well{
+padding:10px 0;
+border:1px solid rgba(0,0,0,0.1);
+transition:.3s background-color;
+user-select:none;
+}
+
+.well:hover{
+background:#263540;
+box-shadow:inset 10px 10px 3px #263540;
+}
+
+
+/***color theme 2 for option menu*/
+.well2{
+padding:10px 0;
+border:1px solid rgba(0,0,0,0.1);
+transition:.3s background-color;
+user-select:none;
+}
+
+.well2:hover{
+background:#263540;
+box-shadow:inset 10px 10px 3px #263540;
+color:#EAF6EE;
+}
+
+
+
+
+#options{
+bottom:0;
+width:100%;
+}
+#copyBtn{
+position:fixed;
+top:10%;
+left:0;
+padding:15px;
+font-size:1.2em;
+}
+
+.copy-col{
+color:#394851;
+}
+
+.theme-1,#demoBtn{
+background:#394851;
+color:#D9E4F5;
+transition: background-color 1s;
+}
+
+.theme-0{
+background:#f1f1f1;
+color:#434C59;
+transition: background-color 1s;
+}
+
+
+.theme-2{
+background:#007EC7;
+color:white;
+transition: background-color 1s;
+}
+
+
+.theme-3{
+color:white;
+transition: background-color 1s;
+}
+
+.theme-4{
+background:#0C7A79;
+color:white;
+transition: background-color 1s;
+}
+
+#sidebar{
+width:50%;
+font-size:15px;
+padding:3px 5px;
+position:fixed;
+right:0;
+border-bottom-left-radius:5px;
+}
+#sidebar div{
+margin:10px 3px;
+z-index:10;
+}
+
+.hideSide{
+display:none;
+}
+
+a{
+text-decoration:none;
+}
+
+
+/**fixing the position**/
+header{
+height:8vh;
+}
+
+#btnView{
+height:38vh;
+}
+#options{
+height:54vh;
+}
+
+.okBtn{
+margin-top:5px;
+border-radius:5px;
+background:rgba(0,0,0,0.1);
+border:1px solid rgba(0,0,0,0.6);
+}
+
+.cls:hover{
+opacity:0.8;
+}
+
+
+button{
+background:#4527A0;
+color:white;
+height:auto;
+width:auto;
+padding:10px 35px;
+font-size:15px;
+letter-spacing:normal;
+text-transform:none;
+border:0px solid transparent;
+border-radius:5px;
+box-shadow: 0px 0px 0px #232323 ;
+cursor:pointer;
+vertical-align:middle;
+overflow:hidden;
+text-align:center;
+white-space:nowrap}
+
+#demoBtn button{
+cursor:pointer ;
+opacity:0.8;
+position:fixed;
+top:40%;
+left:0;
+font-size:0.7em;
+padding:7px 10px;
+border-top-left-radius:0px;
+background:#394851;
+color:#D9E4F5;
+transition: background-color 1s;
+}
+#demoBtn button:hover{
+   opacity:1; 
+    
+}
+
+#sourceCode{
+    
+    z-index:15;
+}
+
+
+
+</style>
+
+<title>button generator</title>
+</head>
+<body style="" class="theme-0" >
+<header id="header"  class=" theme-1 w3-padding w3-card" >Button Designer
+<i id="bar" class="fa fa-ellipsis-v w3-right w3-large" ></i>
+ <i id="closeSide" class="fa fa-times w3-right w3-large w3-hide" ></i>
+</header>
+
+<!--side view-->
+<div class="theme-1 w3-animate-right w3-card hideSide" id="sidebar">
+<a href="https://www.sololearn.com/Profile/5130756/?ref=app" ><div>Follow Me</div></a>
+<div onclick="changeTheme()">Toggle Theme
+</div>
+<div>Select Unit
+<select id="unitSelect"  class="w3-select w3-round w3-tiny"  >
+<option>px</option>
+<option>%</option>
+<option>em</option>
+<option>rem</option>
+<option>pt</option>
+<option>pc</option>
+</select>
+</div>
+<div onclick="document.getElementById('more').classList.toggle('w3-hide')">❤️More❤️</div>
+
+</div>
+<div id="more" style="z-index:10" class=" w3-padding w3-display-container w3-hide w3-display-topleft w3-animate-zoom" >
+<a href="#ext" ><div class="fa fa-times w3-right  w3-padding theme-0"></div></a>
+<div class="w3-padding w3-card-4 w3-border-bottom w3-white">More</div>
+<div class="w3-small w3-padding  w3-white w3-text-dark-grey ">
+<ul class="w3-ul w3-text-blue-grey">
+<span class="w3-text-dark-grey">You might also like:</span>
+<li><a href="https://code.sololearn.com/WwzuzOH5RVTC/?ref=app" >Auto Certificate Builder</a></li>
+<li><a href="https://code.sololearn.com/W80f1KKqnPBT/?ref=app" >Auto Form Builder</a></li>
+<li><a href="https://code.sololearn.com/W2kSJGJl1d29/?ref=app" >Pocket Life (A Game)</a></li>
+<li><a href="https://code.sololearn.com/W65l91EaKVx7/?ref=app" >Julian's Diary</a></li>
+<li><a href="https://code.sololearn.com/W4VA72XcHiJ0/?ref=app" >CSS Playground</a></ul>
+</ul>
+
+<hr>
+Thank you for using this program. I would like to hear your thoughts and suggestions.<br><p></p>
+<hr>
+<i class="w3-badge theme-1 fa fa-info"></i>
+<br>
+<span class="w3-text-blue">Button Designer </span> should be used for personal and recreational purpose only.<br><br>
+It should not be reproduced, modified or decompiled in any other means or form without the consent and prior authorization by the <a href="https://www.sololearn.com/Profile/5130756/?ref=app" class="w3-text-blue" > Owner</a>
+<p>Made with love by <span class="w3-large w3-text-blue-grey"><a href="https://www.sololearn.com/Profile/5130756/?ref=app" >STONNY</a></span></p>
+</div>
+<div class="w3-padding w3-card w3-white">
+<button id="ext"  onclick="document.getElementById('more').classList.toggle('w3-hide')" class="theme-0 w3-block">close</button>
+</div>
+</div>
+
+
+<div id="demoBtn">
+ <a href="https://code.sololearn.com/W6UXm3Z81kF9/?ref=app"><button>See demo</button></a> 
+</div>
+
+<div onclick="copyMe()" class="copy-col"   id="copyBtn" >
+<i class="fa fa-copy w3-right " ></i>
+</div>
+
+<div id="sourceCode" class="theme-0 w3-padding w3-border w3-display-topleft w3-display-container w3-hide w3-round w3-animate-zoom w3-sand">
+<i onclick="this.parentElement.classList.toggle('w3-hide')" class="w3-display-topright  w3-padding fa fa-times"></i>
+
+<i class="w3-tiny w3-text-red tween">The source code has been copied to clipboard !!!<br> (touch to edit <span class="fa fa-arrow-down"></span> )</i>
+<div style="overflow:scroll" id="clipBoard" class="w3-display-container w3-padding" contenteditable="true" >
+<i onclick="copyMe2()" style="padding-top:40%" class="w3-display-topright fa  fa-copy"></i>
+<div>background:<span id="a1">#4527A0</span>;</div>
+<div>color:<span id="a2">#ffffff</span>;</div>
+<div>height:<span id="a3">auto</span>;</div>
+<div>width:<span id="a4">auto</span>;</div>
+<div>padding-top:<span id="a18">11px</span>;</div>
+<div>padding-right:<span id="a20">35px</span>;</div>
+<div>padding-bottom:<span id="a19">11px</span>;</div>
+<div>padding-left:<span id="a21">35px</span>;</div>
+<div>font-size:<span id="a7">15px</span>;</div>
+<div>letter-spacing:<span id="a8">normal</span>;</div>
+<div>text-transform:<span id="a9">none</span>;</div>
+<div>border-color:<span id="a11">rgba(0,0,0,0.1)</span>;</div>
+<div>border-style:<span>solid</span>;</div>
+<div>border-width:<span id="a10">2px</span>;</div>
+<div>text-shadow:<span id="a23">1px -1px 1px black</span>;</div>
+<div>border-radius:<span id="a12">5px</span>;</div>
+<div>box-shadow:<span id="a17"> </span> <span id="a13">0px</span><span id="a14"> 0px</span> <span id="a15">0px </span> <span id="a16">#232323</span>;</div>
+<div>cursor:pointer;</div>
+<div>vertical-align:middle;</div>
+<div>overflow:hidden;</div>
+<div>text-align:center;</div>
+<div>white-space:nowrap;</div>
+</div>
+
+</div>
+
+
+
+
+<!--btn view-->
+<div id="btnView" class=" w3-padding-64 w3-center"  >
+
+<button id="btn">hello</button>
+
+</div>
+
+
+
+
+<!--options menu -->
+<div id="options" class="theme-1 " >
+
+<!--show bg view menu-->
+
+<div style="padding:20px 10px;height:52vh"  id="view1" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view1')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+
+
+<div style="margin-bottom:15px"  >
+<span>background-color<span ></span><br>
+<input id="bgCol1"  onchange="selectCol()" type="color"  style="width:100%"  class="w3-round"  >
+ 
+
+</div>
+
+<h6>OR</h6>
+
+<div style="margin-top:5px" >
+<span>Enter a color name/value/gradient</span><br>
+
+
+<input value="linear-gradient(250deg, white, green)" oninput="bgCol2Oninput()" id="bgCol2"  type="text" class="w3-input w3-round w3-border"  >
+</div>
+<div class="w3-right okBtn" >
+ <button onclick=enterCol() class="w3-btn" >Enter</button>
+</div>
+<br>
+
+</div>
+
+
+<!--text view menu-->
+
+
+<div style="padding:20px 10px;height:52vh"  id="view2" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view2')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+
+
+<div style="margin-bottom:15px"  >
+<span>text color</span><br>
+<input id="txtCol1"  onchange="selectTxtCol()" type="color"   style="width:100%"  class="w3-round"  >
+ 
+
+</div>
+
+<h6>OR</h6>
+
+<div style="margin-top:10px" >
+<span>Enter a color name/value</span><br>
+
+
+<input oninput="txtCol2Oninput()" id="txtCol2"  type="text"  class="w3-input w3-round w3-border"  >
+</div>
+<div class="w3-right okBtn" >
+ <button onclick=enterTxtCol() class="w3-btn" >Enter</button>
+</div>
+</div>
+
+
+<!--height view  menu-->
+<div style="padding:20px 10px;height:52vh"  id="view3" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view3')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+<div class="w3-padding" >height : <span id="heightHint"  >auto</span></div>
+<input id="heightRange" oninput="changeHeight()"  type="range" min="0" max="120"  class="w3-input"  >
+</div>
+
+
+
+<!--width view  menu-->
+<div style="padding:20px 10px;height:52vh"  id="view6" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view6')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+<div class="w3-padding" >width : <span id="widthHint" >auto</span></div>
+<input id="widthRange" oninput="changeWidth()"  type="range" min="0" max="300"  class="w3-input"  >
+</div>
+
+
+<!--padding view  menu-->
+<div style="padding:20px 10px;height:52vh"  id="view4" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view4')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+
+<div class="w3-margin-top" >top and bottom padding : <span id="padHint1" >10px</span><br>
+<input oninput="changeTopPad()" id="padTop" max="50"   type="range" value="10"  class="w3-input"  >
+</div>
+
+<div style="margin-top:30px"  >left and right padding : <span id="padHint2" >35px</span><br>
+<input value="35" oninput="changeLeftPad()" id="padLeft"  type="range" class="w3-input"  >
+</div>
+</div>
+
+
+<div style="overflow:scroll;padding:20px 10px;height:52vh"  id="view5" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+<i onclick="clsMenu('view5')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+
+
+<!--font size submenu-->
+
+<div style="margin-top:3px" >text-shadow:<span id="TshadowHint" >black</span>
+</div>
+<select onchange="changeTshadow()" id="Tshadow"  class="w3-input w3-round" >
+<option>black</option>
+<option>white</option>
+<option>red</option>
+<option>blue</option>
+<option>green</option>
+<option>yellow</option>
+<option>grey</option>
+<option>pink</option>
+<option>none</option>
+</select>
+
+
+<div style="margin-top:20px" >font-size : <span id="fontHint" >15px</span>
+</div>
+<input value="15" id="fontRange"  type="range" class="w3-input" oninput="changeFont()"  >
+
+<div style="margin-top:10px" >letter-spacing : <span id="spaceHint" >normal</span>
+</div>
+<input min="-5" max="15" id="spaceRange"  type="range" class="w3-input" oninput="spaceChange()"  >
+
+<div style="margin-top:10px" >text-transform : <span id="transformHint" >none</span>
+</div>
+<select id="selectTransform" class="w3-input w3-round w3-border">
+<option>capitalize</option>
+<option>uppercase</option>
+<option>lowercase</option>
+</select>
+
+</div>
+
+
+<!--border submenu-->
+<div style="padding:20px 10px;height:52vh"  id="view8" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view8')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+<div style="margin-top:0px" >border-size :<span id="borderHint1" >2px</span>
+<br>
+<input min="0" max="10"  id="borderRange"  type="range" class="w3-input" oninput="changeBorderRange()"  >
+</div>
+
+<div style="margin-top:0px" >border-color :<span id="borderHint2" >#c2c2c2</span>
+<br>
+<input style="width:100%"  id="borderCol1" value="#c2c2c2" type="color" class="w3-round" oninput="borderColChange1()"  >
+  
+</div>
+<div style="margin-top:5px" >enter color name/value:<span id="borderHint3" >rgba(0,0,0,0.1)</span>
+<br>
+<input style="width:100%"  id="borderCol2" value="rgba(0,0,0,0.1)"  type="text" class="w3-round w3-border w3-input " oninput="borderColChange2()"  >
+<button onclick="borderOk()"  class="okBtn w3-right w3-button" >enter</button>
+</div>
+</div>
+
+
+
+<!--border radius submenu-->
+<div style="padding:20px 10px;height:52vh"  id="view9" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view9')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+<div style="padding-top:20px">Border-radius : <span id="radiusHint" >5px</div>
+<input id="bradius" class="w3-input" oninput="changeRadius()" value="5" max="70" type="range">
+
+</div>
+
+
+<!--box shadow sub menu-->
+<div style="padding:20px 10px;height:54vh;overflow:scroll"  id="view7" class="w3-display-container  w3-border-top theme-1 w3-hide"  >
+
+<i onclick="clsMenu('view7')" class="w3-display-topright w3-margin cls fa fa-times"></i>
+
+<div>
+blur radius: <span id="tHint5">0px</span><br>
+<input id="blurShadow" oninput="changeBlur()" type="range"  value="0" max="30" class="w3-input">
+</div>
+
+<div>
+color: <span id="tHint6">#000000</span><br>
+<input style="width:100%" id="boxColor" oninput="colorShadow()" type="color" value="#000000" class="">
+</div>
+
+
+<div style="margin-top:10px" >
+optional(inset): <span id="tHint7"></span><br>
+<select onchange="changeInset()" class="w3-input w3-round" id="inset">
+<option>none</option>
+<option>inset</option>
+</select>
+</div>
+
+
+
+<div style="margin-top:10px">
+top/bottom shadow: <span id="tHint1">0px</span><br>
+<input id="topShadow"  oninput="changeTopShadow()" type="range" min="-50" value="0" max="50" class="w3-input">
+</div>
+
+<div>
+right/left shadow: <span id="tHint2">0px</span><br>
+<input id="rightShadow" oninput="changeRightShadow()" type="range" min="-50" Max="50" class="w3-input">
+</div>
+
+
+
+
+
+
+</div>
+
+<!--main menu-->
+
+<div id="menu"  class="w3-row w3-hid " >
+<div class="w3-col well s4 w3-center" ><i class="fa fa-palette"></i>
+<br>background
+ </div>
+
+
+<div class="w3-col well s4 w3-center" ><i class="fa fa-pen-fancy" ></i><br>
+text color
+</div>
+
+
+
+<div class="w3-col well s4 w3-center" >
+<i class="fa fa-grip-lines-vertical" ></i> <br>
+height
+</i>
+</div>
+
+
+
+
+
+<div class="w3-col well s4 w3-center" ><i class="fa fa-stream"></i>
+<br>padding
+ </div>
+
+
+<div class="w3-col well s4 w3-center" ><i class="fa fa-font" >-+</i><br>
+font
+</div>
+
+
+
+<div class="w3-col well s4 w3-center" >
+<i class="fa fa-ruler-horizontal" ></i> <br>
+width
+</i>
+</div>
+
+
+
+<div class="w3-col well s4 w3-center" ><i class="fa fa-adjust"></i>
+<br>shadow
+ </div>
+
+
+<div class="w3-col well s4 w3-center" ><i class="fa fa-border-style" ></i><br>
+border
+</div>
+
+
+
+<div class="w3-col well s4 w3-center" >
+<i class="fa fa-square" ></i> <br>
+curve
+</i>
+</div>
+
+
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+/**get id of all source view**/
+function demo(DIV){ 
+return document.getElementById("a"+DIV);
+}
+
+/***variables for layouts***/
+var header, sidebar, btnView,options, copyBtn, bar, closeSide,w3col;
+var unit="px";var sel=document.getElementById("unitSelect");sel.onchange=function (){ 
+unit=sel.value;
+}
+header=document.getElementById("header");sidebar=document.getElementById("sidebar");btnView=document.getElementById("btnView");
+options=document.getElementById("options");
+copyBtn=document.getElementById("copyBtn");
+bar=document.getElementById("bar");w3col=document.getElementsByClassName("w3-col");closeSide=document.getElementById("closeSide");
+var btn,bgCol2,bgCol1,txtCol2,txtCol1;var btn = document.getElementById("btn");document.body.onload=function (){ 
+btn.style.background="#4527A0";btn.style.color="white";
+btn.style.padding="10px 35px";btn.style.fontSize="15px";
+btn.style.border="1px solid rgba(0,0,0,0.1)";btn.style.textShadow="1px 1px black";
+}
+/***sub menu for background-color select***/
+var bgCol2= document.getElementById("bgCol2");
+var bgCol1= document.getElementById("bgCol1");
+function bgCol2Oninput(){
+btn.style.background=bgCol2.value;demo(1).innerText=bgCol2.value; }function selectCol(){btn.style.background=bgCol1.value;demo(1).innerText=bgCol1.value;}function enterCol(){ btn.style.background=bgCol2.value;demo(1).innerText=bgCol2.value;
+}
+/**submenu for color selection***/
+var txtCol2= document.getElementById("txtCol2");
+var txtCol1= document.getElementById("txtCol1");
+function txtCol2Oninput(){
+btn.style.color=txtCol2.value;demo(2).innerText=txtCol2.value;
+ }function selectTxtCol(){
+btn.style.color=txtCol1.value;demo(2).innerText=txtCol1.value;}function enterTxtCol(){ 
+btn.style.color=txtCol2.value;demo(2).innerText=txtCol2.value;
+}
+
+/**submenu for height selection**/
+var heightRange=document.getElementById("heightRange");var heightHint=document.getElementById("heightHint");function changeHeight(){
+heightHint.innerText=heightRange.value+unit;
+btn.style.height=heightRange.value+unit;
+demo(3).innerText=heightHint.innerText;
+ }
+/**submenu for width selection**/
+var widthRange=document.getElementById("widthRange");var widthHint=document.getElementById("widthHint");
+function changeWidth(){
+widthHint.innerText=widthRange.value+unit;
+btn.style.width=widthRange.value+unit;
+demo(4).innerText=widthHint.innerText;
+ }
+/**submenu for padding**/
+var padHint1=document.getElementById("padHint1");
+var padHint2=document.getElementById("padHint2");
+var padTop=document.getElementById("padTop");
+var padLeft=document.getElementById("padLeft");
+function changeTopPad(){ 
+btn.style.paddingTop=padTop.value+unit;btn.style.paddingBottom=padTop.value+unit;padHint1.innerText=padTop.value+unit;
+demo(18).innerText=padHint1.innerText;demo(19).innerText=padHint1.innerText;}function changeLeftPad(){ 
+btn.style.paddingLeft=padLeft.value+unit;
+btn.style.paddingRight=padLeft.value+unit;
+padHint2.innerText=padLeft.value+unit;demo(20).innerText=padHint2.innerText;demo(21).innerText=padHint2.innerText;
+}
+/***submenu for font size***/
+var fontHint=document.getElementById("fontHint");
+var fontRange=document.getElementById("fontRange");
+function changeFont(){
+ btn.style.fontSize=fontRange.value+unit;
+fontHint.innerText=fontRange.value+unit;
+demo(7).innerText=fontHint.innerText;
+}var spaceHint, spaceRange, transformHint,selectTransform;
+spaceHint=document.getElementById("spaceHint");
+spaceRange=document.getElementById("spaceRange");var selectTransform=document.getElementById("selectTransform");
+function spaceChange(){ 
+btn.style.letterSpacing=spaceRange.value+unit;
+spaceHint.innerText=spaceRange.value+unit;
+demo(8).innerText=spaceHint.innerText;
+}selectTransform.onchange=function (){ 
+btn.style.textTransform=selectTransform.value;
+document.getElementById("transformHint").innerText=selectTransform.value;
+demo(9).innerText=selectTransform.value;
+}
+var Tshadow,TshadowHint;
+Tshadow=document.getElementById("Tshadow");
+TshadowHint=document.getElementById("TshadowHint");function changeTshadow(){ 
+TshadowHint.innerText=Tshadow.value;
+if(Tshadow.value=="none"){
+demo(23).innerText="none";
+btn.style.textShadow="none";
+}else{demo(23).innerText="1px -1px 1px "+Tshadow.value;
+btn.style.textShadow="1px -1px 1px "+Tshadow.value;
+}
+}
+
+
+/**submenu foe borders**/
+ borderRange,borderCol1,borderCol2,borderHint1, borderHint2, borderHint3;
+ borderRange=document.getElementById("borderRange"); borderCol1=document.getElementById("borderCol1");borderCol2=document.getElementById("borderCol2");borderHint1=document.getElementById("borderHint1");borderHint2=document.getElementById("borderHint2");borderHint3=document.getElementById("borderHint3");function changeBorderRange(){btn.style.borderWidth=borderRange.value+unit;
+borderHint1.innerText=borderRange.value+unit;
+demo(10).innerText=borderHint1.innerText;
+}function borderColChange1(){borderCol1.value
+btn.style.borderColor=borderCol1.value;
+borderHint2.innerText=borderCol1.value;
+demo(11).innerText=borderHint2.innerText;
+}function borderColChange2(){borderCol2.value
+btn.style.borderColor=borderCol2.value;
+borderHint3.innerText=borderCol2.value;
+demo(11).innerText=borderHint2.innerText;
+}function borderOk(){ 
+borderCol2.value
+btn.style.borderColor=borderCol2.value;
+borderHint3.innerText=borderCol2.value;
+demo(11).innerText=borderHint3.innerText;
+}
+/**border-radius submenu**/
+var bradius=document.getElementById("bradius");
+var radiusHint=document.getElementById("radiusHint");function changeRadius(){ 
+btn.style.borderRadius=bradius.value+unit;
+radiusHint.innerText=bradius.value+unit;
+demo(12).innerText=radiusHint.innerText;
+}
+/***sub menu shadow***/
+var tHint1,tHint2,tHint3,tHint4,tHint5,tHint6;
+var topShadow,bottomShadow,rightShadow,leftShadow,inset;tHint1=document.getElementById("tHint1");
+tHint2=document.getElementById("tHint2");
+/***
+tHint3=document.getElementById("tHint3");
+tHint4=document.getElementById("tHint4");
+***/
+tHint5=document.getElementById("tHint5");tHint6=document.getElementById("tHint6");tHint7=document.getElementById("tHint7");topShadow=document.getElementById("topShadow");
+rightShadow=document.getElementById("rightShadow");var blurShadow=document.getElementById("blurShadow");bottomShadow=document.getElementById("bottomShadow");leftShadow=document.getElementById("leftShadow");var boxColor=document.getElementById("boxColor");
+var x1=10,xyrad=10; y1=10,xy="";function changeTopShadow(){ 
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);y1=-(topShadow.value);tHint1.innerText=y1+unit;
+demo(13).innerText=tHint1.innerText;}function changeRightShadow(){ btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);x1=(rightShadow.value);tHint2.innerText=x1+unit;demo(14).innerText=tHint2.innerText;
+}
+
+/***Intentionally Disabled
+function changeBottomShadow(){ 
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value)
+y1=(bottomShadow.value);
+tHint3.innerText=y1+unit;
+}
+
+function changeLeftShadow() {
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value)
+x1=-(leftShadow.value);
+tHint4.innerText=x1+unit;
+}
+***/
+function colorShadow(){
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);tHint6.innerText=boxColor.value;demo(16).innerText=tHint6.innerText;}
+function changeBlur(){
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);xyrad=blurShadow.value;tHint5.innerText=xyrad+unit;demo(15).innerText=tHint5.innerText; }inset=document.getElementById("inset");function changeInset(){ 
+if(inset.value=="none"){inset.value=""
+}xy=inset.value;
+btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);tHint7.innerText=xy;
+demo(17).innerText=tHint7.innerText;}
+
+/**display side menu**/
+bar.onclick=function(){ 
+closeSide.classList.toggle("w3-hide");bar.classList.toggle("w3-hide");sidebar.classList.toggle("hideSide");}
+/***close side menu***/
+closeSide.onclick=function(){closeSide.classList.toggle("w3-hide");bar.classList.toggle("w3-hide");sidebar.classList.toggle("hideSide");}
+
+/***toggle theme***/
+function changeTheme(){ 
+document.getElementById("copyBtn").classList.toggle("theme-3");btnView.classList.toggle("theme-1");header.classList.toggle("theme-1");sidebar.classList.toggle("theme-1");sidebar.classList.toggle("theme-0");options.classList.toggle("theme-1");
+for(let i=0;i<w3col.length;i++){  w3col[i].classList.toggle("well");w3col[i].classList.toggle("well2");
+}
+}
+
+var menu = document.getElementById("menu");
+function clsMenu(x){ 
+menu.classList.toggle("w3-hide");
+document.getElementById(x).classList.toggle("w3-hide");
+}
+
+/**toggle outline**/
+var turnOff=document.getElementById("turnOff");
+var turnOff=document.getElementById("turnOff");
+var tog=0
+function outlineBtn(){ 
+if(tog==2){
+tog=0
+}
+else{
+tog=1
+}
+tog++
+
+if(tog!==1){
+btn.style.outline="none"
+}
+if(tog==1){
+btn.style.outline="1.5px solid orange"
+}
+
+
+turnOff.classList.toggle("w3-hide");
+turnOn.classList.toggle("w3-hide");
+btn.classlist.add("outline");
+}
+
+
+//display sub menu
+for(let i=0; i<w3col.length; i++){ 
+ w3col[i].onclick=function (){menu.classList.toggle("w3-hide");document.getElementById("view"+(i+1)).classList.toggle("w3-hide");
+ } }
+ 
+ var sourceCode=document.getElementById("sourceCode");var clipBoard=document.getElementById("clipBoard");
+function copyMe(){ 
+alert('CSS code has been copied to clipboard !');
+let tempTxt=document.createElement("textarea");
+sourceCode.classList.toggle("w3-hide");
+tempTxt.value=clipBoard.textContent;
+document.body.appendChild(tempTxt)
+tempTxt.select();
+tempTxt.setSelectionRange(0, 99999);
+document.execCommand('copy');
+document.body.removeChild(tempTxt);
+}
+
+function copyMe2(){
+alert('copied to clipboard !');
+let tempTxt=document.createElement("textarea");
+tempTxt.value=clipBoard.textContent;
+document.body.appendChild(tempTxt)
+tempTxt.select();
+tempTxt.setSelectionRange(0, 99999);
+document.execCommand('copy');
+document.body.removeChild(tempTxt);
+ }
+
+</script>
+</body>
+</html>
