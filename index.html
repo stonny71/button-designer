@@ -1,4 +1,15 @@
-<!--You can do much with this program. click see demo to view the series of classic and beautify buttons I designed with this program !!-->
+<!--You can do much with this program. click see demo to view the series of classic and beautify buttons I designed with this program 
+
+
+free hosted version is here
+https://stonny71.github.io/button-designer/
+
+
+
+!!-->
+
+
+
 
 
 <!DOCTYPE html>
@@ -20,6 +31,7 @@ animation:zoom 1s linear ;
 from{font-size:8px; opacity:.5}
 to{font-size:10px; opacity:1}
 }
+
 
 
 /***written by Stonny***/
@@ -193,7 +205,6 @@ transition: background-color 1s;
 }
 
 
-
 </style>
 
 <title>button generator</title>
@@ -207,6 +218,9 @@ transition: background-color 1s;
 <!--side view-->
 <div class="theme-1 w3-animate-right w3-card hideSide" id="sidebar">
 <a href="https://www.sololearn.com/Profile/5130756/?ref=app" ><div>Follow Me</div></a>
+
+<a href="https://stonny71.github.io/button-designer/" ><div>Website</div></a>
+
 <div onclick="changeTheme()">Toggle Theme
 </div>
 <div>Select Unit
@@ -240,8 +254,9 @@ Thank you for using this program. I would like to hear your thoughts and suggest
 <hr>
 <i class="w3-badge theme-1 fa fa-info"></i>
 <br>
-<span class="w3-text-blue">Button Designer </span> should be used for personal and recreational purpose only.<br><br>
-It should not be reproduced, modified or decompiled in any other means or form without the consent and prior authorization by the <a href="https://www.sololearn.com/Profile/5130756/?ref=app" class="w3-text-blue" > Owner</a>
+<span class="w3-text-blue">Button Designer </span> should be used for personal and recreational purpose only.<br>You are free to use this to generate buttons for your commercial projects.<br><br>
+This program in particular should not be reproduced, modified or decompiled in any other means or form without the consent and prior authorization by the <a href="https://www.sololearn.com/Profile/5130756/?ref=app" class="w3-text-blue" > Owner</a>
+<p class="w3-text-red w3-animate-fading"><a href="https://stonny71.github.io/button-designer/">Button Designer is also available live On the Web</a></p>
 <p>Made with love by <span class="w3-large w3-text-blue-grey"><a href="https://www.sololearn.com/Profile/5130756/?ref=app" >STONNY</a></span></p>
 </div>
 <div class="w3-padding w3-card w3-white">
@@ -286,6 +301,7 @@ It should not be reproduced, modified or decompiled in any other means or form w
 <div>overflow:hidden;</div>
 <div>text-align:center;</div>
 <div>white-space:nowrap;</div>
+<div>user-select:none;</div>
 </div>
 
 </div>
@@ -323,7 +339,7 @@ It should not be reproduced, modified or decompiled in any other means or form w
 <h6>OR</h6>
 
 <div style="margin-top:5px" >
-<span>Enter a color name/value/gradient</span><br>
+<span class="w3-tiny">Enter a color name/value/gradient/hsl/rgb</span><br>
 
 
 <input value="linear-gradient(250deg, white, green)" oninput="bgCol2Oninput()" id="bgCol2"  type="text" class="w3-input w3-round w3-border"  >
@@ -583,235 +599,8 @@ curve
 
 <script type="text/javascript">
 
-/**get id of all source view**/
-function demo(DIV){ 
-return document.getElementById("a"+DIV);
-}
-
-/***variables for layouts***/
-var header, sidebar, btnView,options, copyBtn, bar, closeSide,w3col;
-var unit="px";var sel=document.getElementById("unitSelect");sel.onchange=function (){ 
-unit=sel.value;
-}
-header=document.getElementById("header");sidebar=document.getElementById("sidebar");btnView=document.getElementById("btnView");
-options=document.getElementById("options");
-copyBtn=document.getElementById("copyBtn");
-bar=document.getElementById("bar");w3col=document.getElementsByClassName("w3-col");closeSide=document.getElementById("closeSide");
-var btn,bgCol2,bgCol1,txtCol2,txtCol1;var btn = document.getElementById("btn");document.body.onload=function (){ 
-btn.style.background="#4527A0";btn.style.color="white";
-btn.style.padding="10px 35px";btn.style.fontSize="15px";
-btn.style.border="1px solid rgba(0,0,0,0.1)";btn.style.textShadow="1px 1px black";
-}
-/***sub menu for background-color select***/
-var bgCol2= document.getElementById("bgCol2");
-var bgCol1= document.getElementById("bgCol1");
-function bgCol2Oninput(){
-btn.style.background=bgCol2.value;demo(1).innerText=bgCol2.value; }function selectCol(){btn.style.background=bgCol1.value;demo(1).innerText=bgCol1.value;}function enterCol(){ btn.style.background=bgCol2.value;demo(1).innerText=bgCol2.value;
-}
-/**submenu for color selection***/
-var txtCol2= document.getElementById("txtCol2");
-var txtCol1= document.getElementById("txtCol1");
-function txtCol2Oninput(){
-btn.style.color=txtCol2.value;demo(2).innerText=txtCol2.value;
- }function selectTxtCol(){
-btn.style.color=txtCol1.value;demo(2).innerText=txtCol1.value;}function enterTxtCol(){ 
-btn.style.color=txtCol2.value;demo(2).innerText=txtCol2.value;
-}
-
-/**submenu for height selection**/
-var heightRange=document.getElementById("heightRange");var heightHint=document.getElementById("heightHint");function changeHeight(){
-heightHint.innerText=heightRange.value+unit;
-btn.style.height=heightRange.value+unit;
-demo(3).innerText=heightHint.innerText;
- }
-/**submenu for width selection**/
-var widthRange=document.getElementById("widthRange");var widthHint=document.getElementById("widthHint");
-function changeWidth(){
-widthHint.innerText=widthRange.value+unit;
-btn.style.width=widthRange.value+unit;
-demo(4).innerText=widthHint.innerText;
- }
-/**submenu for padding**/
-var padHint1=document.getElementById("padHint1");
-var padHint2=document.getElementById("padHint2");
-var padTop=document.getElementById("padTop");
-var padLeft=document.getElementById("padLeft");
-function changeTopPad(){ 
-btn.style.paddingTop=padTop.value+unit;btn.style.paddingBottom=padTop.value+unit;padHint1.innerText=padTop.value+unit;
-demo(18).innerText=padHint1.innerText;demo(19).innerText=padHint1.innerText;}function changeLeftPad(){ 
-btn.style.paddingLeft=padLeft.value+unit;
-btn.style.paddingRight=padLeft.value+unit;
-padHint2.innerText=padLeft.value+unit;demo(20).innerText=padHint2.innerText;demo(21).innerText=padHint2.innerText;
-}
-/***submenu for font size***/
-var fontHint=document.getElementById("fontHint");
-var fontRange=document.getElementById("fontRange");
-function changeFont(){
- btn.style.fontSize=fontRange.value+unit;
-fontHint.innerText=fontRange.value+unit;
-demo(7).innerText=fontHint.innerText;
-}var spaceHint, spaceRange, transformHint,selectTransform;
-spaceHint=document.getElementById("spaceHint");
-spaceRange=document.getElementById("spaceRange");var selectTransform=document.getElementById("selectTransform");
-function spaceChange(){ 
-btn.style.letterSpacing=spaceRange.value+unit;
-spaceHint.innerText=spaceRange.value+unit;
-demo(8).innerText=spaceHint.innerText;
-}selectTransform.onchange=function (){ 
-btn.style.textTransform=selectTransform.value;
-document.getElementById("transformHint").innerText=selectTransform.value;
-demo(9).innerText=selectTransform.value;
-}
-var Tshadow,TshadowHint;
-Tshadow=document.getElementById("Tshadow");
-TshadowHint=document.getElementById("TshadowHint");function changeTshadow(){ 
-TshadowHint.innerText=Tshadow.value;
-if(Tshadow.value=="none"){
-demo(23).innerText="none";
-btn.style.textShadow="none";
-}else{demo(23).innerText="1px -1px 1px "+Tshadow.value;
-btn.style.textShadow="1px -1px 1px "+Tshadow.value;
-}
-}
-
-
-/**submenu foe borders**/
- borderRange,borderCol1,borderCol2,borderHint1, borderHint2, borderHint3;
- borderRange=document.getElementById("borderRange"); borderCol1=document.getElementById("borderCol1");borderCol2=document.getElementById("borderCol2");borderHint1=document.getElementById("borderHint1");borderHint2=document.getElementById("borderHint2");borderHint3=document.getElementById("borderHint3");function changeBorderRange(){btn.style.borderWidth=borderRange.value+unit;
-borderHint1.innerText=borderRange.value+unit;
-demo(10).innerText=borderHint1.innerText;
-}function borderColChange1(){borderCol1.value
-btn.style.borderColor=borderCol1.value;
-borderHint2.innerText=borderCol1.value;
-demo(11).innerText=borderHint2.innerText;
-}function borderColChange2(){borderCol2.value
-btn.style.borderColor=borderCol2.value;
-borderHint3.innerText=borderCol2.value;
-demo(11).innerText=borderHint2.innerText;
-}function borderOk(){ 
-borderCol2.value
-btn.style.borderColor=borderCol2.value;
-borderHint3.innerText=borderCol2.value;
-demo(11).innerText=borderHint3.innerText;
-}
-/**border-radius submenu**/
-var bradius=document.getElementById("bradius");
-var radiusHint=document.getElementById("radiusHint");function changeRadius(){ 
-btn.style.borderRadius=bradius.value+unit;
-radiusHint.innerText=bradius.value+unit;
-demo(12).innerText=radiusHint.innerText;
-}
-/***sub menu shadow***/
-var tHint1,tHint2,tHint3,tHint4,tHint5,tHint6;
-var topShadow,bottomShadow,rightShadow,leftShadow,inset;tHint1=document.getElementById("tHint1");
-tHint2=document.getElementById("tHint2");
-/***
-tHint3=document.getElementById("tHint3");
-tHint4=document.getElementById("tHint4");
-***/
-tHint5=document.getElementById("tHint5");tHint6=document.getElementById("tHint6");tHint7=document.getElementById("tHint7");topShadow=document.getElementById("topShadow");
-rightShadow=document.getElementById("rightShadow");var blurShadow=document.getElementById("blurShadow");bottomShadow=document.getElementById("bottomShadow");leftShadow=document.getElementById("leftShadow");var boxColor=document.getElementById("boxColor");
-var x1=10,xyrad=10; y1=10,xy="";function changeTopShadow(){ 
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);y1=-(topShadow.value);tHint1.innerText=y1+unit;
-demo(13).innerText=tHint1.innerText;}function changeRightShadow(){ btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);x1=(rightShadow.value);tHint2.innerText=x1+unit;demo(14).innerText=tHint2.innerText;
-}
-
-/***Intentionally Disabled
-function changeBottomShadow(){ 
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value)
-y1=(bottomShadow.value);
-tHint3.innerText=y1+unit;
-}
-
-function changeLeftShadow() {
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value)
-x1=-(leftShadow.value);
-tHint4.innerText=x1+unit;
-}
-***/
-function colorShadow(){
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);tHint6.innerText=boxColor.value;demo(16).innerText=tHint6.innerText;}
-function changeBlur(){
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);xyrad=blurShadow.value;tHint5.innerText=xyrad+unit;demo(15).innerText=tHint5.innerText; }inset=document.getElementById("inset");function changeInset(){ 
-if(inset.value=="none"){inset.value=""
-}xy=inset.value;
-btn.style.boxShadow=(xy+" "+ x1+unit+ " " +y1+unit +" " +xyrad+unit +" "+boxColor.value);tHint7.innerText=xy;
-demo(17).innerText=tHint7.innerText;}
-
-/**display side menu**/
-bar.onclick=function(){ 
-closeSide.classList.toggle("w3-hide");bar.classList.toggle("w3-hide");sidebar.classList.toggle("hideSide");}
-/***close side menu***/
-closeSide.onclick=function(){closeSide.classList.toggle("w3-hide");bar.classList.toggle("w3-hide");sidebar.classList.toggle("hideSide");}
-
-/***toggle theme***/
-function changeTheme(){ 
-document.getElementById("copyBtn").classList.toggle("theme-3");btnView.classList.toggle("theme-1");header.classList.toggle("theme-1");sidebar.classList.toggle("theme-1");sidebar.classList.toggle("theme-0");options.classList.toggle("theme-1");
-for(let i=0;i<w3col.length;i++){  w3col[i].classList.toggle("well");w3col[i].classList.toggle("well2");
-}
-}
-
-var menu = document.getElementById("menu");
-function clsMenu(x){ 
-menu.classList.toggle("w3-hide");
-document.getElementById(x).classList.toggle("w3-hide");
-}
-
-/**toggle outline**/
-var turnOff=document.getElementById("turnOff");
-var turnOff=document.getElementById("turnOff");
-var tog=0
-function outlineBtn(){ 
-if(tog==2){
-tog=0
-}
-else{
-tog=1
-}
-tog++
-
-if(tog!==1){
-btn.style.outline="none"
-}
-if(tog==1){
-btn.style.outline="1.5px solid orange"
-}
-
-
-turnOff.classList.toggle("w3-hide");
-turnOn.classList.toggle("w3-hide");
-btn.classlist.add("outline");
-}
-
-
-//display sub menu
-for(let i=0; i<w3col.length; i++){ 
- w3col[i].onclick=function (){menu.classList.toggle("w3-hide");document.getElementById("view"+(i+1)).classList.toggle("w3-hide");
- } }
- 
- var sourceCode=document.getElementById("sourceCode");var clipBoard=document.getElementById("clipBoard");
-function copyMe(){ 
-alert('CSS code has been copied to clipboard !');
-let tempTxt=document.createElement("textarea");
-sourceCode.classList.toggle("w3-hide");
-tempTxt.value=clipBoard.textContent;
-document.body.appendChild(tempTxt)
-tempTxt.select();
-tempTxt.setSelectionRange(0, 99999);
-document.execCommand('copy');
-document.body.removeChild(tempTxt);
-}
-
-function copyMe2(){
-alert('copied to clipboard !');
-let tempTxt=document.createElement("textarea");
-tempTxt.value=clipBoard.textContent;
-document.body.appendChild(tempTxt)
-tempTxt.select();
-tempTxt.setSelectionRange(0, 99999);
-document.execCommand('copy');
-document.body.removeChild(tempTxt);
- }
+/**this section has been encrypted for some reasons**/
+var _0x71d3=["\x61","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x70\x78","\x75\x6E\x69\x74\x53\x65\x6C\x65\x63\x74","\x6F\x6E\x63\x68\x61\x6E\x67\x65","\x76\x61\x6C\x75\x65","\x68\x65\x61\x64\x65\x72","\x73\x69\x64\x65\x62\x61\x72","\x62\x74\x6E\x56\x69\x65\x77","\x6F\x70\x74\x69\x6F\x6E\x73","\x63\x6F\x70\x79\x42\x74\x6E","\x62\x61\x72","\x77\x33\x2D\x63\x6F\x6C","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x43\x6C\x61\x73\x73\x4E\x61\x6D\x65","\x63\x6C\x6F\x73\x65\x53\x69\x64\x65","\x62\x74\x6E","\x6F\x6E\x6C\x6F\x61\x64","\x62\x6F\x64\x79","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64","\x73\x74\x79\x6C\x65","\x23\x34\x35\x32\x37\x41\x30","\x63\x6F\x6C\x6F\x72","\x77\x68\x69\x74\x65","\x70\x61\x64\x64\x69\x6E\x67","\x31\x30\x70\x78\x20\x33\x35\x70\x78","\x66\x6F\x6E\x74\x53\x69\x7A\x65","\x31\x35\x70\x78","\x62\x6F\x72\x64\x65\x72","\x31\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x72\x67\x62\x61\x28\x30\x2C\x30\x2C\x30\x2C\x30\x2E\x31\x29","\x74\x65\x78\x74\x53\x68\x61\x64\x6F\x77","\x31\x70\x78\x20\x31\x70\x78\x20\x62\x6C\x61\x63\x6B","\x62\x67\x43\x6F\x6C\x32","\x62\x67\x43\x6F\x6C\x31","\x69\x6E\x6E\x65\x72\x54\x65\x78\x74","\x74\x78\x74\x43\x6F\x6C\x32","\x74\x78\x74\x43\x6F\x6C\x31","\x68\x65\x69\x67\x68\x74\x52\x61\x6E\x67\x65","\x68\x65\x69\x67\x68\x74\x48\x69\x6E\x74","\x68\x65\x69\x67\x68\x74","\x77\x69\x64\x74\x68\x52\x61\x6E\x67\x65","\x77\x69\x64\x74\x68\x48\x69\x6E\x74","\x77\x69\x64\x74\x68","\x70\x61\x64\x48\x69\x6E\x74\x31","\x70\x61\x64\x48\x69\x6E\x74\x32","\x70\x61\x64\x54\x6F\x70","\x70\x61\x64\x4C\x65\x66\x74","\x70\x61\x64\x64\x69\x6E\x67\x54\x6F\x70","\x70\x61\x64\x64\x69\x6E\x67\x42\x6F\x74\x74\x6F\x6D","\x70\x61\x64\x64\x69\x6E\x67\x4C\x65\x66\x74","\x70\x61\x64\x64\x69\x6E\x67\x52\x69\x67\x68\x74","\x66\x6F\x6E\x74\x48\x69\x6E\x74","\x66\x6F\x6E\x74\x52\x61\x6E\x67\x65","\x73\x70\x61\x63\x65\x48\x69\x6E\x74","\x73\x70\x61\x63\x65\x52\x61\x6E\x67\x65","\x73\x65\x6C\x65\x63\x74\x54\x72\x61\x6E\x73\x66\x6F\x72\x6D","\x6C\x65\x74\x74\x65\x72\x53\x70\x61\x63\x69\x6E\x67","\x74\x65\x78\x74\x54\x72\x61\x6E\x73\x66\x6F\x72\x6D","\x74\x72\x61\x6E\x73\x66\x6F\x72\x6D\x48\x69\x6E\x74","\x54\x73\x68\x61\x64\x6F\x77","\x54\x73\x68\x61\x64\x6F\x77\x48\x69\x6E\x74","\x6E\x6F\x6E\x65","\x31\x70\x78\x20\x2D\x31\x70\x78\x20\x31\x70\x78\x20","\x62\x6F\x72\x64\x65\x72\x52\x61\x6E\x67\x65","\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x31","\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x32","\x62\x6F\x72\x64\x65\x72\x48\x69\x6E\x74\x31","\x62\x6F\x72\x64\x65\x72\x48\x69\x6E\x74\x32","\x62\x6F\x72\x64\x65\x72\x48\x69\x6E\x74\x33","\x62\x6F\x72\x64\x65\x72\x57\x69\x64\x74\x68","\x62\x6F\x72\x64\x65\x72\x43\x6F\x6C\x6F\x72","\x62\x72\x61\x64\x69\x75\x73","\x72\x61\x64\x69\x75\x73\x48\x69\x6E\x74","\x62\x6F\x72\x64\x65\x72\x52\x61\x64\x69\x75\x73","\x74\x48\x69\x6E\x74\x31","\x74\x48\x69\x6E\x74\x32","\x74\x48\x69\x6E\x74\x35","\x74\x48\x69\x6E\x74\x36","\x74\x48\x69\x6E\x74\x37","\x74\x6F\x70\x53\x68\x61\x64\x6F\x77","\x72\x69\x67\x68\x74\x53\x68\x61\x64\x6F\x77","\x62\x6C\x75\x72\x53\x68\x61\x64\x6F\x77","\x62\x6F\x74\x74\x6F\x6D\x53\x68\x61\x64\x6F\x77","\x6C\x65\x66\x74\x53\x68\x61\x64\x6F\x77","\x62\x6F\x78\x43\x6F\x6C\x6F\x72","","\x62\x6F\x78\x53\x68\x61\x64\x6F\x77","\x20","\x69\x6E\x73\x65\x74","\x6F\x6E\x63\x6C\x69\x63\x6B","\x77\x33\x2D\x68\x69\x64\x65","\x74\x6F\x67\x67\x6C\x65","\x63\x6C\x61\x73\x73\x4C\x69\x73\x74","\x68\x69\x64\x65\x53\x69\x64\x65","\x74\x68\x65\x6D\x65\x2D\x33","\x74\x68\x65\x6D\x65\x2D\x31","\x74\x68\x65\x6D\x65\x2D\x30","\x6C\x65\x6E\x67\x74\x68","\x77\x65\x6C\x6C","\x77\x65\x6C\x6C\x32","\x6D\x65\x6E\x75","\x74\x75\x72\x6E\x4F\x66\x66","\x6F\x75\x74\x6C\x69\x6E\x65","\x31\x2E\x35\x70\x78\x20\x73\x6F\x6C\x69\x64\x20\x6F\x72\x61\x6E\x67\x65","\x61\x64\x64","\x63\x6C\x61\x73\x73\x6C\x69\x73\x74","\x76\x69\x65\x77","\x73\x6F\x75\x72\x63\x65\x43\x6F\x64\x65","\x63\x6C\x69\x70\x42\x6F\x61\x72\x64","\x43\x53\x53\x20\x63\x6F\x64\x65\x20\x68\x61\x73\x20\x62\x65\x65\x6E\x20\x63\x6F\x70\x69\x65\x64\x20\x74\x6F\x20\x63\x6C\x69\x70\x62\x6F\x61\x72\x64\x20\x21","\x74\x65\x78\x74\x61\x72\x65\x61","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x74\x65\x78\x74\x43\x6F\x6E\x74\x65\x6E\x74","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x73\x65\x6C\x65\x63\x74","\x73\x65\x74\x53\x65\x6C\x65\x63\x74\x69\x6F\x6E\x52\x61\x6E\x67\x65","\x63\x6F\x70\x79","\x65\x78\x65\x63\x43\x6F\x6D\x6D\x61\x6E\x64","\x72\x65\x6D\x6F\x76\x65\x43\x68\x69\x6C\x64","\x63\x6F\x70\x69\x65\x64\x20\x74\x6F\x20\x63\x6C\x69\x70\x62\x6F\x61\x72\x64\x20\x21"];function demo(_0x47ebx2){return document[_0x71d3[1]](_0x71d3[0]+ _0x47ebx2)}var header,sidebar,btnView,options,copyBtn,bar,closeSide,w3col;var unit=_0x71d3[2];var sel=document[_0x71d3[1]](_0x71d3[3]);sel[_0x71d3[4]]= function(){unit= sel[_0x71d3[5]]};header= document[_0x71d3[1]](_0x71d3[6]);sidebar= document[_0x71d3[1]](_0x71d3[7]);btnView= document[_0x71d3[1]](_0x71d3[8]);options= document[_0x71d3[1]](_0x71d3[9]);copyBtn= document[_0x71d3[1]](_0x71d3[10]);bar= document[_0x71d3[1]](_0x71d3[11]);w3col= document[_0x71d3[13]](_0x71d3[12]);closeSide= document[_0x71d3[1]](_0x71d3[14]);var btn,bgCol2,bgCol1,txtCol2,txtCol1;var btn=document[_0x71d3[1]](_0x71d3[15]);document[_0x71d3[17]][_0x71d3[16]]= function(){btn[_0x71d3[19]][_0x71d3[18]]= _0x71d3[20];btn[_0x71d3[19]][_0x71d3[21]]= _0x71d3[22];btn[_0x71d3[19]][_0x71d3[23]]= _0x71d3[24];btn[_0x71d3[19]][_0x71d3[25]]= _0x71d3[26];btn[_0x71d3[19]][_0x71d3[27]]= _0x71d3[28];btn[_0x71d3[19]][_0x71d3[29]]= _0x71d3[30]};var bgCol2=document[_0x71d3[1]](_0x71d3[31]);var bgCol1=document[_0x71d3[1]](_0x71d3[32]);function bgCol2Oninput(){btn[_0x71d3[19]][_0x71d3[18]]= bgCol2[_0x71d3[5]];demo(1)[_0x71d3[33]]= bgCol2[_0x71d3[5]]}function selectCol(){btn[_0x71d3[19]][_0x71d3[18]]= bgCol1[_0x71d3[5]];demo(1)[_0x71d3[33]]= bgCol1[_0x71d3[5]]}function enterCol(){btn[_0x71d3[19]][_0x71d3[18]]= bgCol2[_0x71d3[5]];demo(1)[_0x71d3[33]]= bgCol2[_0x71d3[5]]}var txtCol2=document[_0x71d3[1]](_0x71d3[34]);var txtCol1=document[_0x71d3[1]](_0x71d3[35]);function txtCol2Oninput(){btn[_0x71d3[19]][_0x71d3[21]]= txtCol2[_0x71d3[5]];demo(2)[_0x71d3[33]]= txtCol2[_0x71d3[5]]}function selectTxtCol(){btn[_0x71d3[19]][_0x71d3[21]]= txtCol1[_0x71d3[5]];demo(2)[_0x71d3[33]]= txtCol1[_0x71d3[5]]}function enterTxtCol(){btn[_0x71d3[19]][_0x71d3[21]]= txtCol2[_0x71d3[5]];demo(2)[_0x71d3[33]]= txtCol2[_0x71d3[5]]}var heightRange=document[_0x71d3[1]](_0x71d3[36]);var heightHint=document[_0x71d3[1]](_0x71d3[37]);function changeHeight(){heightHint[_0x71d3[33]]= heightRange[_0x71d3[5]]+ unit;btn[_0x71d3[19]][_0x71d3[38]]= heightRange[_0x71d3[5]]+ unit;demo(3)[_0x71d3[33]]= heightHint[_0x71d3[33]]}var widthRange=document[_0x71d3[1]](_0x71d3[39]);var widthHint=document[_0x71d3[1]](_0x71d3[40]);function changeWidth(){widthHint[_0x71d3[33]]= widthRange[_0x71d3[5]]+ unit;btn[_0x71d3[19]][_0x71d3[41]]= widthRange[_0x71d3[5]]+ unit;demo(4)[_0x71d3[33]]= widthHint[_0x71d3[33]]}var padHint1=document[_0x71d3[1]](_0x71d3[42]);var padHint2=document[_0x71d3[1]](_0x71d3[43]);var padTop=document[_0x71d3[1]](_0x71d3[44]);var padLeft=document[_0x71d3[1]](_0x71d3[45]);function changeTopPad(){btn[_0x71d3[19]][_0x71d3[46]]= padTop[_0x71d3[5]]+ unit;btn[_0x71d3[19]][_0x71d3[47]]= padTop[_0x71d3[5]]+ unit;padHint1[_0x71d3[33]]= padTop[_0x71d3[5]]+ unit;demo(18)[_0x71d3[33]]= padHint1[_0x71d3[33]];demo(19)[_0x71d3[33]]= padHint1[_0x71d3[33]]}function changeLeftPad(){btn[_0x71d3[19]][_0x71d3[48]]= padLeft[_0x71d3[5]]+ unit;btn[_0x71d3[19]][_0x71d3[49]]= padLeft[_0x71d3[5]]+ unit;padHint2[_0x71d3[33]]= padLeft[_0x71d3[5]]+ unit;demo(20)[_0x71d3[33]]= padHint2[_0x71d3[33]];demo(21)[_0x71d3[33]]= padHint2[_0x71d3[33]]}var fontHint=document[_0x71d3[1]](_0x71d3[50]);var fontRange=document[_0x71d3[1]](_0x71d3[51]);function changeFont(){btn[_0x71d3[19]][_0x71d3[25]]= fontRange[_0x71d3[5]]+ unit;fontHint[_0x71d3[33]]= fontRange[_0x71d3[5]]+ unit;demo(7)[_0x71d3[33]]= fontHint[_0x71d3[33]]}var spaceHint,spaceRange,transformHint,selectTransform;spaceHint= document[_0x71d3[1]](_0x71d3[52]);spaceRange= document[_0x71d3[1]](_0x71d3[53]);var selectTransform=document[_0x71d3[1]](_0x71d3[54]);function spaceChange(){btn[_0x71d3[19]][_0x71d3[55]]= spaceRange[_0x71d3[5]]+ unit;spaceHint[_0x71d3[33]]= spaceRange[_0x71d3[5]]+ unit;demo(8)[_0x71d3[33]]= spaceHint[_0x71d3[33]]}selectTransform[_0x71d3[4]]= function(){btn[_0x71d3[19]][_0x71d3[56]]= selectTransform[_0x71d3[5]];document[_0x71d3[1]](_0x71d3[57])[_0x71d3[33]]= selectTransform[_0x71d3[5]];demo(9)[_0x71d3[33]]= selectTransform[_0x71d3[5]]};var Tshadow,TshadowHint;Tshadow= document[_0x71d3[1]](_0x71d3[58]);TshadowHint= document[_0x71d3[1]](_0x71d3[59]);function changeTshadow(){TshadowHint[_0x71d3[33]]= Tshadow[_0x71d3[5]];if(Tshadow[_0x71d3[5]]== _0x71d3[60]){demo(23)[_0x71d3[33]]= _0x71d3[60];btn[_0x71d3[19]][_0x71d3[29]]= _0x71d3[60]}else {demo(23)[_0x71d3[33]]= _0x71d3[61]+ Tshadow[_0x71d3[5]];btn[_0x71d3[19]][_0x71d3[29]]= _0x71d3[61]+ Tshadow[_0x71d3[5]]}}borderRange,borderCol1,borderCol2,borderHint1,borderHint2,borderHint3;borderRange= document[_0x71d3[1]](_0x71d3[62]);borderCol1= document[_0x71d3[1]](_0x71d3[63]);borderCol2= document[_0x71d3[1]](_0x71d3[64]);borderHint1= document[_0x71d3[1]](_0x71d3[65]);borderHint2= document[_0x71d3[1]](_0x71d3[66]);borderHint3= document[_0x71d3[1]](_0x71d3[67]);function changeBorderRange(){btn[_0x71d3[19]][_0x71d3[68]]= borderRange[_0x71d3[5]]+ unit;borderHint1[_0x71d3[33]]= borderRange[_0x71d3[5]]+ unit;demo(10)[_0x71d3[33]]= borderHint1[_0x71d3[33]]}function borderColChange1(){borderCol1[_0x71d3[5]];btn[_0x71d3[19]][_0x71d3[69]]= borderCol1[_0x71d3[5]];borderHint2[_0x71d3[33]]= borderCol1[_0x71d3[5]];demo(11)[_0x71d3[33]]= borderHint2[_0x71d3[33]]}function borderColChange2(){borderCol2[_0x71d3[5]];btn[_0x71d3[19]][_0x71d3[69]]= borderCol2[_0x71d3[5]];borderHint3[_0x71d3[33]]= borderCol2[_0x71d3[5]];demo(11)[_0x71d3[33]]= borderHint2[_0x71d3[33]]}function borderOk(){borderCol2[_0x71d3[5]];btn[_0x71d3[19]][_0x71d3[69]]= borderCol2[_0x71d3[5]];borderHint3[_0x71d3[33]]= borderCol2[_0x71d3[5]];demo(11)[_0x71d3[33]]= borderHint3[_0x71d3[33]]}var bradius=document[_0x71d3[1]](_0x71d3[70]);var radiusHint=document[_0x71d3[1]](_0x71d3[71]);function changeRadius(){btn[_0x71d3[19]][_0x71d3[72]]= bradius[_0x71d3[5]]+ unit;radiusHint[_0x71d3[33]]= bradius[_0x71d3[5]]+ unit;demo(12)[_0x71d3[33]]= radiusHint[_0x71d3[33]]}var tHint1,tHint2,tHint3,tHint4,tHint5,tHint6;var topShadow,bottomShadow,rightShadow,leftShadow,inset;tHint1= document[_0x71d3[1]](_0x71d3[73]);tHint2= document[_0x71d3[1]](_0x71d3[74]);tHint5= document[_0x71d3[1]](_0x71d3[75]);tHint6= document[_0x71d3[1]](_0x71d3[76]);tHint7= document[_0x71d3[1]](_0x71d3[77]);topShadow= document[_0x71d3[1]](_0x71d3[78]);rightShadow= document[_0x71d3[1]](_0x71d3[79]);var blurShadow=document[_0x71d3[1]](_0x71d3[80]);bottomShadow= document[_0x71d3[1]](_0x71d3[81]);leftShadow= document[_0x71d3[1]](_0x71d3[82]);var boxColor=document[_0x71d3[1]](_0x71d3[83]);var x1=10,xyrad=10;y1= 10,xy= _0x71d3[84];function changeTopShadow(){btn[_0x71d3[19]][_0x71d3[85]]= (xy+ _0x71d3[86]+ x1+ unit+ _0x71d3[86]+ y1+ unit+ _0x71d3[86]+ xyrad+ unit+ _0x71d3[86]+ boxColor[_0x71d3[5]]);y1=  -(topShadow[_0x71d3[5]]);tHint1[_0x71d3[33]]= y1+ unit;demo(13)[_0x71d3[33]]= tHint1[_0x71d3[33]]}function changeRightShadow(){btn[_0x71d3[19]][_0x71d3[85]]= (xy+ _0x71d3[86]+ x1+ unit+ _0x71d3[86]+ y1+ unit+ _0x71d3[86]+ xyrad+ unit+ _0x71d3[86]+ boxColor[_0x71d3[5]]);x1= (rightShadow[_0x71d3[5]]);tHint2[_0x71d3[33]]= x1+ unit;demo(14)[_0x71d3[33]]= tHint2[_0x71d3[33]]}function colorShadow(){btn[_0x71d3[19]][_0x71d3[85]]= (xy+ _0x71d3[86]+ x1+ unit+ _0x71d3[86]+ y1+ unit+ _0x71d3[86]+ xyrad+ unit+ _0x71d3[86]+ boxColor[_0x71d3[5]]);tHint6[_0x71d3[33]]= boxColor[_0x71d3[5]];demo(16)[_0x71d3[33]]= tHint6[_0x71d3[33]]}function changeBlur(){btn[_0x71d3[19]][_0x71d3[85]]= (xy+ _0x71d3[86]+ x1+ unit+ _0x71d3[86]+ y1+ unit+ _0x71d3[86]+ xyrad+ unit+ _0x71d3[86]+ boxColor[_0x71d3[5]]);xyrad= blurShadow[_0x71d3[5]];tHint5[_0x71d3[33]]= xyrad+ unit;demo(15)[_0x71d3[33]]= tHint5[_0x71d3[33]]}inset= document[_0x71d3[1]](_0x71d3[87]);function changeInset(){if(inset[_0x71d3[5]]== _0x71d3[60]){inset[_0x71d3[5]]= _0x71d3[84]};xy= inset[_0x71d3[5]];btn[_0x71d3[19]][_0x71d3[85]]= (xy+ _0x71d3[86]+ x1+ unit+ _0x71d3[86]+ y1+ unit+ _0x71d3[86]+ xyrad+ unit+ _0x71d3[86]+ boxColor[_0x71d3[5]]);tHint7[_0x71d3[33]]= xy;demo(17)[_0x71d3[33]]= tHint7[_0x71d3[33]]}bar[_0x71d3[88]]= function(){closeSide[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);bar[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);sidebar[_0x71d3[91]][_0x71d3[90]](_0x71d3[92])};closeSide[_0x71d3[88]]= function(){closeSide[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);bar[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);sidebar[_0x71d3[91]][_0x71d3[90]](_0x71d3[92])};function changeTheme(){document[_0x71d3[1]](_0x71d3[10])[_0x71d3[91]][_0x71d3[90]](_0x71d3[93]);btnView[_0x71d3[91]][_0x71d3[90]](_0x71d3[94]);header[_0x71d3[91]][_0x71d3[90]](_0x71d3[94]);sidebar[_0x71d3[91]][_0x71d3[90]](_0x71d3[94]);sidebar[_0x71d3[91]][_0x71d3[90]](_0x71d3[95]);options[_0x71d3[91]][_0x71d3[90]](_0x71d3[94]);for(let i=0;i< w3col[_0x71d3[96]];i++){w3col[i][_0x71d3[91]][_0x71d3[90]](_0x71d3[97]);w3col[i][_0x71d3[91]][_0x71d3[90]](_0x71d3[98])}}var menu=document[_0x71d3[1]](_0x71d3[99]);function clsMenu(_0x47ebx4e){menu[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);document[_0x71d3[1]](_0x47ebx4e)[_0x71d3[91]][_0x71d3[90]](_0x71d3[89])}var turnOff=document[_0x71d3[1]](_0x71d3[100]);var turnOff=document[_0x71d3[1]](_0x71d3[100]);var tog=0;function outlineBtn(){if(tog== 2){tog= 0}else {tog= 1};tog++;if(tog!== 1){btn[_0x71d3[19]][_0x71d3[101]]= _0x71d3[60]};if(tog== 1){btn[_0x71d3[19]][_0x71d3[101]]= _0x71d3[102]};turnOff[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);turnOn[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);btn[_0x71d3[104]][_0x71d3[103]](_0x71d3[101])}for(let i=0;i< w3col[_0x71d3[96]];i++){w3col[i][_0x71d3[88]]= function(){menu[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);document[_0x71d3[1]](_0x71d3[105]+ (i+ 1))[_0x71d3[91]][_0x71d3[90]](_0x71d3[89])}};var sourceCode=document[_0x71d3[1]](_0x71d3[106]);var clipBoard=document[_0x71d3[1]](_0x71d3[107]);function copyMe(){alert(_0x71d3[108]);let _0x47ebx55=document[_0x71d3[110]](_0x71d3[109]);sourceCode[_0x71d3[91]][_0x71d3[90]](_0x71d3[89]);_0x47ebx55[_0x71d3[5]]= clipBoard[_0x71d3[111]];document[_0x71d3[17]][_0x71d3[112]](_0x47ebx55);_0x47ebx55[_0x71d3[113]]();_0x47ebx55[_0x71d3[114]](0,99999);document[_0x71d3[116]](_0x71d3[115]);document[_0x71d3[17]][_0x71d3[117]](_0x47ebx55)}function copyMe2(){alert(_0x71d3[118]);let _0x47ebx55=document[_0x71d3[110]](_0x71d3[109]);_0x47ebx55[_0x71d3[5]]= clipBoard[_0x71d3[111]];document[_0x71d3[17]][_0x71d3[112]](_0x47ebx55);_0x47ebx55[_0x71d3[113]]();_0x47ebx55[_0x71d3[114]](0,99999);document[_0x71d3[116]](_0x71d3[115]);document[_0x71d3[17]][_0x71d3[117]](_0x47ebx55)}
 
 </script>
 </body>
